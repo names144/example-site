@@ -1,2 +1,2 @@
 # example-site
-Example research web application with JQuery and Bootstrap
+Please go to <site> to view the web app in action.
