@@ -9,8 +9,8 @@ var KEYS = ["team", "partners", "management", "people"];
 $(document).ready(function() {
 
   // Update the status' to default state
-  $("#httpStatus").html("<span class='mdi-action-help mdi-material-grey'>Not yet checked</span>");
-  $("#keywordStatus").html("<span class='mdi-action-help mdi-material-grey'>Not yet checked</span>");
+  $("#httpStatus").html("<span class='mdi-action-help mdi-material-grey'>&nbspNot yet checked</span>");
+  $("#keywordStatus").html("<span class='mdi-action-help mdi-material-grey'>&nbspNot yet checked</span>");
 
   // Setup the validation
   $("#validateBtn").click(function() {
@@ -20,22 +20,22 @@ $(document).ready(function() {
       .done(function(data) {
         // If 200 OK
         if (data.status === 200) {
-          $("#httpStatus").html("<span class='mdi-navigation-check mdi-material-green'>200 OK!</span>");
+          $("#httpStatus").html("<span class='mdi-navigation-check mdi-material-green'>&nbsp200 OK!</span>");
         } else if (data.status === 400) {
-          $("#httpStatus").html("<span class='mdi-navigation-cancel mdi-material-red'>Website not working!</span>");
+          $("#httpStatus").html("<span class='mdi-navigation-cancel mdi-material-red'>&nbspWebsite not working!</span>");
         } else {
-          $("#httpStatus").html("<span class='mdi-navigation-cancel mdi-material-yellow'>" + data.status + "</span>");
+          $("#httpStatus").html("<span class='mdi-alert-error mdi-material-yellow'>&nbsp" + data.status + "</span>");
         }
       })
       .fail(function(data) {
         console.log("Unable to reach server!");
-        $("#httpStatus").html("<span class='mdi-navigation-cancel mdi-material-yellow'>No response!</span>");
+        $("#httpStatus").html("<span class='mdi-alert-error mdi-material-yellow'>&nbspNo response!</span>");
       })
       .always(function() {
         // Find keywords in link
         KEYS.forEach(function(val) {
           var re = new RegExp("(^|[/\.])" + val +"([/\.]|$)");
-          if (toTest.search(re) >= 0) {
+          if (toTest.search(re) >= 0 && keywords.indexOf(val) < 0) {
             keywords.push(val);
           }
         });
@@ -47,9 +47,9 @@ $(document).ready(function() {
             words += word + ",";
           });
           words = words.substring(0, words.length-1);
-          $("#keywordStatus").html("<span class='mdi-navigation-check mdi-material-green'>" + words + "</span>");
+          $("#keywordStatus").html("<span class='mdi-navigation-check mdi-material-green'>&nbsp" + words + "</span>");
         } else {
-          $("#keywordStatus").html("<span class='mdi-navigation-cancel mdi-material-red'>No keywords found</span>");
+          $("#keywordStatus").html("<span class='mdi-navigation-cancel mdi-material-red'>&nbspNo keywords found</span>");
         }
       });
   });
