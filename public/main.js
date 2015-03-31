@@ -16,6 +16,10 @@ $(document).ready(function() {
   $("#validateBtn").click(function() {
     var toTest = $("#urlInput").val();
     var keywords = [];
+    var $btn = $(this);
+
+    $btn.prop("disabled", true);
+
     $.post(URL, {url: toTest})
       .done(function(data) {
         // If 200 OK
@@ -51,6 +55,7 @@ $(document).ready(function() {
         } else {
           $("#keywordStatus").html("<span class='mdi-navigation-cancel mdi-material-red'>&nbspNo keywords found</span>");
         }
+        $btn.prop("disabled", false);
       });
   });
 });

@@ -20,19 +20,18 @@ app.route('/*').get(function(req, res) {
 
 app.route('/validate').post(function(req, res) {
   var url = req.body.url;
-  var keywords = ["team", "partners", "management", "people"];
   var toReturn = {
     status: 0,
   };
 
-  http.get(url, function(respnose) {
-    console.log("Got response: " + res.statusCode);
-    if (respnose.statusCode === 200) {
+  http.get(url, function(response) {
+    console.log("Got response: " + response.statusCode);
+    if (response.statusCode === 200) {
       toReturn.status = 200;
-    } else if (respnose.statusCode >= 400 && respnose.statusCode < 500) {
+    } else if (response.statusCode >= 400 && response.statusCode < 500) {
       toReturn.status = 400;
     } else {
-      toReturn.status = respnose.statusCode;
+      toReturn.status = response.statusCode;
     }
     return res.json(toReturn);
   }).on('error', function(e) {
@@ -43,8 +42,7 @@ app.route('/validate').post(function(req, res) {
 
 var server = app.listen(8080, function () {
 
-  var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Listening at http://%s:%s', host, port);
+  console.log('Listening on port %s', port);
 });
