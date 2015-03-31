@@ -1,17 +1,22 @@
 body {
   width: 100%;
   text-align: center;
-
   font-size: 18px;
+}
+
+footer {
+  display: inline-block;
 }
 
 #main {
   padding-top: 25px;
+  padding-bottom: 25px;
   display: inline-block;
 }
 
 #example-container {
   background-color: white;
+  padding-bottom: 30px;
 }
 
 .pad {
