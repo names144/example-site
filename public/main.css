@@ -1,0 +1,19 @@
+body {
+  width: 100%;
+  text-align: center;
+
+  font-size: 18px;
+}
+
+#main {
+  padding-top: 25px;
+  display: inline-block;
+}
+
+#example-container {
+  background-color: white;
+}
+
+.pad {
+  padding-top: 30px;
+}

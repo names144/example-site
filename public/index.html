@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Example Research Web Application</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+
+    <div id="main">
+      <div id="example-container" class="container-fluid shadow-z-1">
+        <h2>Hi Researcher!<br><br>Please find for us the management webpage for 3G Capital.<br><br>Once you find it please copy and paste the url into the form below.</h2>
+        <form class="pad form">
+          <div class="form-group">
+            <input type="url" id="urlInput" class="form-control" id="url" placeholder="Please enter the webpage URL here">
+            <button type="button" id="validateBtn" class="btn btn-primary">Validate</button>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>HTTP Status</h3>
+            <div id="httpStatus">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h3>Keyword Status</h3>
+            <div id="keywordStatus">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
